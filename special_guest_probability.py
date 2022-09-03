@@ -2,15 +2,27 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+#this url variable contain hyperlink of cleaned data which one of our team member  riya goyal cleaned
+
 url="https://drive.google.com/file/d/1wuF1pJKO4pleroRKXygX9ekp8YWOj53M/view?usp=sharing"
 url='https://drive.google.com/uc?id=d/1wuF1pJKO4pleroRKXygX9ekp8YWOj53M'
+
+#this variable contains the dataframe of csv file which we made by suing .read_csv() method of pandas package
 hotel_booking_df = pd.read_csv(url)
 
 #filter the data using filter method of pandas DataFrame Object
 filter_df =hotel_booking_df.filter(items=["hotel", "total_of_special_requests"])
+#sort the above dataframe by checking who had demanded special request
+
 sort_df_by_special_request_truthy= filter_df[filter_df["total_of_special_requests"]>0]
+
+#count the total nuumber of special request for different hotels
 special_request_count = sort_df_by_special_request_truthy.groupby(["hotel"])["total_of_special_requests"].count()
+
+#total number of bookings done calculation
 total_bookings_done=filter_df.groupby(["hotel"])["total_of_special_requests"].count()
+
+#calculating special request probability
 special_request_probability=pd.Series(
 [ special_request_count["City Hotel"]/(total_bookings_done["City Hotel"]) ,
  special_request_count["Resort Hotel"]/(total_bookings_done["Resort Hotel"])],
@@ -65,7 +77,7 @@ project_detail_p2=fig2.text(0.2,0.98,"AlmaBetter Capstone Project year 2022",fon
 fig2.show()
 
 
-#comprehensive ANimation
+#comprehensive animation for making analysis more visually appealing and comprehensible to layman also
 incr_h=0
 def incr(frame):
     global incr_h
