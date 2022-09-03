@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-url="https://drive.google.com/file/d/1KBfKrJK_UWw8RiCFLP8MxtD6VIDrxr5G/view?usp=sharing"
-url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+url="https://drive.google.com/file/d/1wuF1pJKO4pleroRKXygX9ekp8YWOj53M/view?usp=sharing"
+url='https://drive.google.com/uc?id=d/1wuF1pJKO4pleroRKXygX9ekp8YWOj53M'
 hotel_booking_df = pd.read_csv(url)
 
 #filter the data using filter method of pandas DataFrame Object
